@@ -1,24 +1,15 @@
 import java.util.ArrayList;
 
 public class Examens {
-    private String soortexamen;
-    private String naam;
-    private ArrayList<Examens> Examens = new ArrayList<Examens>();
+    private ArrayList<Examen> Examens = new ArrayList<Examen>();
 
-    public Examens(String naam) {
-        this.naam = naam;
-    }
-
-
-    public void addExamen(Examens examen) {
+    public void addExamen(Examen examen) {
         this.Examens.add(examen);
-
     }
 
-    public void printExamen() {
-        System.out.println("Examen naam: " + this.naam);
-        for (Examens thisExamen : this.Examens) {
-            System.out.println( thisExamen);
+    public void printExamens() {
+        for (Examen examen: this.Examens) {
+            System.out.println(examen);
 
         }
     }
