@@ -26,10 +26,8 @@ public class Menu {
 
     }
 
-    public static void ExitMuenu() {
-        boolean running = true;
+    public static void ExitMenu() {
         System.out.print("Bedankt en tot ziens! ");
-        running = false;
     }
 }
 
