@@ -9,6 +9,11 @@ public class Menu {
     }
     public static void printMenu() {
         Scanner reader = new Scanner(System.in);
+        Examens examens = new Examens();
+        examens.addExamen(new Examen("Java"));
+        examens.addExamen(new Examen("Javasda"));
+        examens.addExamen(new Examen("Javadsada"));
+        examens.addExamen(new Examen("Javasdasdas", "soort"));
 
         System.out.println("***********");
         System.out.println("* Examens  *");
@@ -31,11 +36,6 @@ public class Menu {
         int nummer = reader.nextInt();
         switch (nummer) {
             case 1:
-                Examens examens = new Examens();
-                examens.addExamen(new Examen("Java"));
-                examens.addExamen(new Examen("Javasda"));
-                examens.addExamen(new Examen("Javadsada"));
-                examens.addExamen(new Examen("Javasdasdas", "soort"));
                 examens.printExamens();
                 break;
             case 2:
