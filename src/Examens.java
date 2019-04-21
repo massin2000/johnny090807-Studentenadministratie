@@ -4,7 +4,6 @@ public class Examens {
     private ArrayList<Examen> Examens = new ArrayList<Examen>();
 
     public void addExamen(Examen examen) {
-
         this.Examens.add(examen);
     }
 

@@ -1,9 +1,7 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Menu extends Student {
-    public Menu(String StudentNaam, String StudentNummer) {
-        super(StudentNaam, StudentNummer);
-    }
+public class Menu {
 
     public static void presentQuestion(Question question) {
         Scanner reader = new Scanner(System.in);
@@ -11,20 +9,22 @@ public class Menu extends Student {
         question.display();
         String input = reader.nextLine();
     }
-    public  void printStudenten() {
-        for (Student student : this.Studenten) {
-            System.out.println(student);
-        }
-    }
 
     public static void printMenu() {
         Scanner reader = new Scanner(System.in);
+
+        Examens examens = new Examens();
+        examens.addExamen(new Examen("jaja"));
+        examens.addExamen(new Examen("lkdfjdjg"));
+        examens.addExamen(new Examen("JajaJava", "moniee"));
+        examens.addExamen(new Examen("HOI"));
+        examens.addExamen(new Examen("Lekkerdan"));
+        examens.addExamen(new Examen("geenidee","geld"));
+
         Studenten studenten = new Studenten();
-        studenten.addStudent(new Student("Mhamed Arkoubi", "18048056"));
-        studenten.addStudent(new Student("John Klees", "18006434"));
-        studenten.addStudent(new Student("houi", "2342423432"));
-
-
+        studenten.addStudent(new Student("John Klees","18006434"));
+        studenten.addStudent(new Student("Mhamed Arkoubi", "18003452"));
+        studenten.addStudent(new Student("Test persoon", "00000000"));
         System.out.println("***********");
         System.out.println("* Examens  *");
         System.out.println("***********");
@@ -41,30 +41,32 @@ public class Menu extends Student {
         System.out.println("7) Welke examens heeft student gehaald? ");
         System.out.println("8) Welke student heeft de meeste examens gehaald?  ");
         System.out.println("9) Exit");
+        System.out.println();
 
         System.out.print("Uw keuze: ");
-        int nummer = reader.nextInt();
-
+        int nummer = 0;
+        while(nummer == 0){
+            try{
+                nummer = reader.nextInt();
+            }catch (Exception e){
+                System.out.println("Er ging iets mis");
+            }
+        }
         switch (nummer) {
             case 1:
-                Examens examens = new Examens();
-                examens.addExamen(new Examen("Java"));
-                examens.addExamen(new Examen("Javasda"));
-                examens.addExamen(new Examen("Javadsada"));
-                examens.addExamen(new Examen("Javasdasdas", "soort"));
                 examens.printExamens();
                 break;
             case 2:
                 studenten.printStudenten();
                 break;
             case 3:
-
-
+                Student student = studenten.voegStudentToe();
+                studenten.addStudent(student);
+                studenten.printStudenten();
                 break;
             case 4:
                 studenten.printStudenten();
-                studenten.VerwijderenStudenten();
-
+                studenten.verwijderStudenten();
                 break;
             case 5:
                 ChoiceQuestion question1 = new ChoiceQuestion("Vraag (a) : wat is java? ", "Java is een programmeertaal");
@@ -87,13 +89,10 @@ public class Menu extends Student {
                 ExitMenu();
                 break;
         }
+        printMenu();
     }
-
-
-
 
     public static void ExitMenu() {
-
         System.out.print("Bedankt en tot ziens! ");
-        }
     }
+}
