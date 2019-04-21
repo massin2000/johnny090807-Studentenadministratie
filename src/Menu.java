@@ -58,7 +58,7 @@ public class Menu extends Student {
                 studenten.printStudenten();
                 break;
             case 3:
-               
+
 
                 break;
             case 4:
