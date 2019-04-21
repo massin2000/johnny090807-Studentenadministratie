@@ -1,14 +1,29 @@
 import java.util.Scanner;
 
-public class Menu {
+public class Menu extends Student {
+    public Menu(String StudentNaam, String StudentNummer) {
+        super(StudentNaam, StudentNummer);
+    }
+
     public static void presentQuestion(Question question) {
         Scanner reader = new Scanner(System.in);
         System.out.println(" ");
         question.display();
         String input = reader.nextLine();
     }
+    public  void printStudenten() {
+        for (Student student : this.Studenten) {
+            System.out.println(student);
+        }
+    }
+
     public static void printMenu() {
         Scanner reader = new Scanner(System.in);
+        Studenten studenten = new Studenten();
+        studenten.addStudent(new Student("Mhamed Arkoubi", "18048056"));
+        studenten.addStudent(new Student("John Klees", "18006434"));
+        studenten.addStudent(new Student("houi", "2342423432"));
+
 
         System.out.println("***********");
         System.out.println("* Examens  *");
@@ -29,6 +44,7 @@ public class Menu {
 
         System.out.print("Uw keuze: ");
         int nummer = reader.nextInt();
+
         switch (nummer) {
             case 1:
                 Examens examens = new Examens();
@@ -39,10 +55,16 @@ public class Menu {
                 examens.printExamens();
                 break;
             case 2:
+                studenten.printStudenten();
                 break;
             case 3:
+               
+
                 break;
             case 4:
+                studenten.printStudenten();
+                studenten.VerwijderenStudenten();
+
                 break;
             case 5:
                 ChoiceQuestion question1 = new ChoiceQuestion("Vraag (a) : wat is java? ", "Java is een programmeertaal");
@@ -67,7 +89,11 @@ public class Menu {
         }
     }
 
-        public static void ExitMenu() {
-            System.out.print("Bedankt en tot ziens! ");
+
+
+
+    public static void ExitMenu() {
+
+        System.out.print("Bedankt en tot ziens! ");
         }
     }

@@ -6,6 +6,7 @@ public class Examen {
     private ArrayList<Studenten> studenten = new ArrayList<>();
 
     public Examen(String examenNaam){
+
         this.examenNaam = examenNaam;
     }
 
