@@ -36,7 +36,7 @@ public class Question {
         }
     }
     public boolean Check(String input) {
-        return input.equals(answer);
+        return input.toLowerCase().equals(answer.toLowerCase());
     }
 
 }

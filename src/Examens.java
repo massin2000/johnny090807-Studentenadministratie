@@ -8,7 +8,13 @@ public class Examens {
         this.Examens.add(examen);
         return examen;
     }
-
+//    public void verwijderStudent(String verwijderen) {
+//        for (int i = 0; i < Examens.size(); i++) {
+//            if (Examens.get(i).getStudentNummer().equals(verwijderen)){
+//                studenten.remove(i);
+//            }
+//        }
+//    }
     public void printExamens() {
         for (Examen examen: this.Examens) {
             System.out.println(examen);

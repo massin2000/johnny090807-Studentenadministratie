@@ -1,16 +1,24 @@
+import java.util.ArrayList;
 import java.util.Random;
 
 public class Student {
 
     protected String StudentNaam;
     protected String StudentNummer;
-    protected boolean geslaagd;
+    protected ArrayList<Examen> gemaakteExamens = new ArrayList<>();
 
     public Student(String StudentNaam) {
         this.StudentNaam = StudentNaam;
         this.StudentNummer = Integer.toString(getRandomNumberInRange(1, 9));
         for (int i = 0; i < 7; i++) {
             this.StudentNummer += Integer.toString(getRandomNumberInRange(1, 9));
+        }
+    }
+    public void addExamen(Examen gemaakteExamen){
+        for (Examen examen: gemaakteExamens) {
+            if(examen.getExamenNaam() != gemaakteExamen.getExamenNaam()){
+                gemaakteExamens.add(gemaakteExamen);
+            }
         }
     }
     private static int getRandomNumberInRange(int min, int max) {
