@@ -14,7 +14,7 @@ public class Examens {
             System.out.println(examen);
         }
     }
-    public void printExamensWithChoice() {
+    public void printExamensWithChoice(Student student) {
         Scanner reader = new Scanner(System.in);
         System.out.println("Welk examen wilt u maken?");
         for (int i = 0; i < Examens.size(); i++) {
@@ -30,7 +30,7 @@ public class Examens {
         }
         keuze -= 1;
         try{
-            Examens.get(keuze).stelVragen();
+            Examens.get(keuze).stelVragen(student);
         }catch (Exception e){
             System.out.println("Er is iets mis gegaan.");
         }

@@ -2,28 +2,26 @@ import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) {
+        int nummer = Menu.printMenu();
         ArrayList<String> meerkeuze = new ArrayList<>();
         meerkeuze.add("hahaha");
         meerkeuze.add("sdfsdf");
         meerkeuze.add("hassddfsdhaha");
         meerkeuze.add("hahfsdfsaha");
         meerkeuze.add("hahsdfsdaha");
-        int nummer = Menu.printMenu();
         Examens examens = new Examens();
         Studenten studenten = new Studenten();
-        Examen Java = examens.addExamen(new Examen("jaja"));
+        Examen Java = examens.addExamen(new Examen("Java"));
         Java.addVragenToExamen(new Question("Wat heb je gedaan vandaag?", "1", meerkeuze));
-        Java.addVragenToExamen(new Question("sdasd", "dsadasd"));
+        Java.addVragenToExamen(new Question("Waarom ben je goed in java?", "geen idee"));
 
-        meerkeuze = new ArrayList<>();
-        examens.addExamen(new Examen("lkdfjdjg"));
-        examens.addExamen(new Examen("JajaJava", "moniee"));
-        examens.addExamen(new Examen("HOI"));
-        examens.addExamen(new Examen("Lekkerdan"));
-        examens.addExamen(new Examen("geenidee", "geld"));
-        studenten.addStudent(new Student("John Klees", "18006434"));
-        studenten.addStudent(new Student("Mhamed Arkoubi", "18003452"));
-        studenten.addStudent(new Student("Test persoon", "00000000"));
+        Examen CSharp = examens.addExamen(new Examen("C#"));
+        CSharp.addVragenToExamen(new Question("Wat heb je gedaan vandaag?", "1", meerkeuze));
+        CSharp.addVragenToExamen(new Question("Waarom ben je goed in CSharp?", "geen idee"));
+
+        studenten.addStudent(new Student("John Klees"));
+        studenten.addStudent(new Student("Mhamed Arkoubi"));
+        studenten.addStudent(new Student("Test persoon"));
         boolean running = true;
         while(running){
             switch (nummer) {
@@ -43,7 +41,12 @@ public class Main {
                     studenten.verwijderStudenten();
                     break;
                 case 5:
-                    examens.printExamensWithChoice();
+                    Student studentNr = studenten.getStudent();
+                    if(studentNr.getStudentNaam() == ""){
+                        System.out.println("geen student gevonden.");
+                    }else{
+                        examens.printExamensWithChoice(studenten.returnStudent(studentNr));
+                    }
                     break;
                 case 6:
                     break;

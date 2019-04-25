@@ -22,15 +22,31 @@ public class Studenten{
         }
         printStudenten();
     }
+    public Student getStudent() {
+        printStudenten();
+        System.out.println("Welk student wilt dit examen maken?");
+        Scanner reader = new Scanner(System.in);
+        String zoeken = reader.nextLine();
+        for (int i = 0; i < Studenten.size(); i++) {
+            if (Studenten.get(i).getStudentNaam().toLowerCase().equals(zoeken.toLowerCase())) {
+                return Studenten.get(i);
+            }else if (Studenten.get(i).getStudentNummer().equals(zoeken)){
+                return Studenten.get(i);
+            }
+        }
+        return new Student("");
+    }
     public void printStudenten() {
         for (Student student : this.Studenten) {
             System.out.println(student);
         }
 
     }
+    public Student returnStudent(Student studentNr){
+        return studentNr;
+    }
     public Student voegStudentToe(){
         String StudentNaam = "";
-        String StudentNummer = "";
         System.out.println("Voeg een student toe");
         System.out.println("--------------------");
         System.out.print("Naam: ");
@@ -48,27 +64,7 @@ public class Studenten{
                 }
             }
         }
-        System.out.print("Student nummer: ");
-        while(StudentNummer.equals("")){
-            try {
-                StudentNummer = reader.nextLine();
-            }catch (Exception e){
-                System.out.println("Iets ging mis.");
-            }
-            if(StudentNummer.length() < 6){
-                System.out.println("Student nummer moet groter dan 6 zijn.");
-                System.out.print("Student nummer: ");
-                StudentNummer = "";
-            }
-            for (Student student: this.Studenten) {
-                if(student.getStudentNummer().equals(StudentNummer)){
-                    System.out.println("Een student heeft dit nummer al.");
-                    System.out.print("Student nummer: ");
-                    StudentNummer = "";
-                }
-            }
-        }
-        return new Student(StudentNaam, StudentNummer);
+        return new Student(StudentNaam);
     }
 }
 
