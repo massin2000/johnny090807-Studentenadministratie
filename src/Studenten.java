@@ -29,7 +29,6 @@ public class Studenten{
 
     }
     public Student voegStudentToe(){
-        Menu menu = new Menu();
         String StudentNaam = "";
         String StudentNummer = "";
         System.out.println("Voeg een student toe");
