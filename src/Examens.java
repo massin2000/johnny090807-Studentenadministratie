@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 public class Examens {
-    private ArrayList<Examen> Examens = new ArrayList<Examen>();
+    private ArrayList<Examen> Examens = new ArrayList<>();
 
     public void addExamen(Examen examen) {
         this.Examens.add(examen);
