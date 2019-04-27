@@ -17,19 +17,20 @@ public class Main {
         Java.addVragenToExamen(new Question("Wat heb je gedaan vandaag?", "1", meerkeuze));
         Java.addVragenToExamen(new Question("Waarom ben je goed in java?", "geen idee"));
 
-        Examen CSharp = examens.addExamen(new Examen("Java", 1));
+        Examen CSharp = examens.addExamen(new Examen("C#", 1));
         CSharp.addVragenToExamen(new Question("Wat heb je gedaan vandaag?", "1", meerkeuze));
         CSharp.addVragenToExamen(new Question("Waarom ben je goed in CSharp?", "geen idee"));
 
         studenten.addStudent(new Student("Test persoon"));
         studenten.addStudent(new Student("John Klees"));
-        for (Examen examen: examens.getExamens()) {
-            for (Examen examen2: examens.getExamens()) {
-                if(examen.getExamenNaam().toLowerCase().equals(examen2.getExamenNaam().toLowerCase())){
-                    throw new java.lang.Error("Er is een examen met dezelfde naam!");
-                }
-            }
-        }
+//        DINGETJE FIXEN
+//        for (Examen examen: examens.getExamens()) {
+//            for (Examen examen2: examens.getExamens()) {
+//                if(examen.getExamenNaam().toLowerCase().equals(examen2.getExamenNaam().toLowerCase())){
+//                    throw new java.lang.Error("Er is een examen met dezelfde naam!");
+//                }
+//            }
+//        }
         boolean running = true;
         while(running){
             switch (nummer) {

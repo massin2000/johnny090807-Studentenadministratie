@@ -16,6 +16,7 @@ public class Examen {
     public void stelVragen(Student student, Examen examen){
         this.addStudentToExamen(student);
         student.addExamen(examen);
+//      DINGETJE FIXEN
         Poging poging = new Poging(student, examen);
         pogingen.add(poging);
         int geslaagd = 0;

@@ -3,13 +3,6 @@ import java.util.Scanner;
 
 public class Menu {
 
-    public static void presentQuestion(Question question) {
-        Scanner reader = new Scanner(System.in);
-        System.out.println(" ");
-        question.display();
-        String input = reader.nextLine();
-    }
-
     public static int printMenu() {
         Scanner reader = new Scanner(System.in);
         System.out.println("***********");
@@ -37,6 +30,7 @@ public class Menu {
                 nummer = reader.nextInt();
             }catch (Exception e){
                 System.out.println("Er ging iets mis");
+                printMenu();
             }
         }
         return nummer;

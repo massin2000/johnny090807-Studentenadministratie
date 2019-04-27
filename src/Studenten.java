@@ -30,7 +30,7 @@ public class Studenten{
         Scanner reader = new Scanner(System.in);
         String zoeken = reader.nextLine();
         for (int i = 0; i < Studenten.size(); i++) {
-            if (Studenten.get(i).getStudentNummer().equals(zoeken)){
+            if (Studenten.get(i).getStudentNummer().equals(zoeken.trim())){
                 return Studenten.get(i);
             }
         }
