@@ -9,9 +9,21 @@ public class Poging {
         this.gekoppeldExamen = examen;
     }
 
-    public void addPoging(){this.aantalPogingen++;}
-    public void setGeslaagd(boolean geslaagd){this.geslaagd = geslaagd;}
-    public Student getGekoppeldStudent(){return  this.gekoppeldStudent;}
-    public Examen getGekoppeldExamen(){return  this.gekoppeldExamen;}
-    public boolean isGeslaagd (){return this.geslaagd;}
+    public void addPoging(){
+
+        this.aantalPogingen++;
+    }
+    public void setGeslaagd(
+            boolean geslaagd){
+        this.geslaagd = geslaagd;
+    }
+    public Student getGekoppeldStudent(){
+        return  this.gekoppeldStudent;
+    }
+    public Examen getGekoppeldExamen(){
+        return  this.gekoppeldExamen;
+    }
+    public boolean isGeslaagd (){
+        return this.geslaagd;
+    }
 }

@@ -6,30 +6,35 @@ public class Main {
         Scanner reader = new Scanner(System.in);
         int nummer = Menu.printMenu();
         ArrayList<String> meerkeuze = new ArrayList<>();
-        meerkeuze.add("hahaha");
-        meerkeuze.add("sdfsdf");
-        meerkeuze.add("hassddfsdhaha");
-        meerkeuze.add("hahfsdfsaha");
-        meerkeuze.add("hahsdfsdaha");
+        meerkeuze.add("gewerk");
+        meerkeuze.add("sporten");
+        meerkeuze.add("school");
+        meerkeuze.add("niks");
+        meerkeuze.add("uiteten");
         Examens examens = new Examens();
         Studenten studenten = new Studenten();
         Examen Java = examens.addExamen(new Examen("Java",1));
         Java.addVragenToExamen(new Question("Wat heb je gedaan vandaag?", "1", meerkeuze));
         Java.addVragenToExamen(new Question("Waarom ben je goed in java?", "geen idee"));
-
-        Examen CSharp = examens.addExamen(new Examen("Java", 1));
-        CSharp.addVragenToExamen(new Question("Wat heb je gedaan vandaag?", "1", meerkeuze));
+        meerkeuze = new ArrayList<>();
+        meerkeuze.add("soort computer");
+        meerkeuze.add("auto");
+        meerkeuze.add("speelgoed");
+        meerkeuze.add("eten");
+        meerkeuze.add("programmeertaal");
+        Examen CSharp = examens.addExamen(new Examen("C#", 1));
+        CSharp.addVragenToExamen(new Question("wat is de csharp? ", "5", meerkeuze));
         CSharp.addVragenToExamen(new Question("Waarom ben je goed in CSharp?", "geen idee"));
 
-        studenten.addStudent(new Student("Test persoon"));
-        studenten.addStudent(new Student("John Klees"));
-        for (Examen examen: examens.getExamens()) {
-            for (Examen examen2: examens.getExamens()) {
-                if(examen.getExamenNaam().toLowerCase().equals(examen2.getExamenNaam().toLowerCase())){
-                    throw new java.lang.Error("Er is een examen met dezelfde naam!");
-                }
-            }
-        }
+
+//
+//        for (Examen examen: examens.getExamens()) {
+//            for (Examen examen2: examens.getExamens()) {
+//                if(!examen.getExamenNaam().toLowerCase().equals(examen2.getExamenNaam().toLowerCase())){
+//                    throw new java.lang.Error("Er is een examen met dezelfde naam!");
+//                }
+//            }
+//        }
         boolean running = true;
         while(running){
             switch (nummer) {
