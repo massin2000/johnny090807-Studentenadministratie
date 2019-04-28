@@ -16,9 +16,16 @@ public class Examen {
     public void stelVragen(Student student, Examen examen){
         this.addStudentToExamen(student);
         student.addExamen(examen);
-//      DINGETJE FIXEN
-        Poging poging = new Poging(student, examen);
-        pogingen.add(poging);
+        Poging poging = new Poging(student,examen);
+        for (Poging poging2: pogingen) {
+            if(poging2.getGekoppeldExamen().getExamenNaam().equals(examen.getExamenNaam()) && poging2.getGekoppeldStudent().getStudentNaam().equals(student.getStudentNaam())){
+                poging2.addPoging();
+                poging = poging2;
+            }else{
+                poging = new Poging(student, examen);
+                pogingen.add(poging);
+            }
+        }
         int geslaagd = 0;
         Scanner reader = new Scanner(System.in);
         for (int i = 0; i < vragen.size(); i++) {

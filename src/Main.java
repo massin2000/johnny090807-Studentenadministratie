@@ -23,14 +23,6 @@ public class Main {
 
         studenten.addStudent(new Student("Test persoon"));
         studenten.addStudent(new Student("John Klees"));
-//        DINGETJE FIXEN
-//        for (Examen examen: examens.getExamens()) {
-//            for (Examen examen2: examens.getExamens()) {
-//                if(examen.getExamenNaam().toLowerCase().equals(examen2.getExamenNaam().toLowerCase())){
-//                    throw new java.lang.Error("Er is een examen met dezelfde naam!");
-//                }
-//            }
-//        }
         boolean running = true;
         while(running){
             switch (nummer) {
