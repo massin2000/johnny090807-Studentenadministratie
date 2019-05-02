@@ -4,7 +4,6 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner reader = new Scanner(System.in);
-        int nummer = Menu.printMenu();
         ArrayList<String> meerkeuze = new ArrayList<>();
         meerkeuze.add("gewerk");
         meerkeuze.add("sporten");
@@ -22,12 +21,22 @@ public class Main {
         meerkeuze.add("speelgoed");
         meerkeuze.add("eten");
         meerkeuze.add("programmeertaal");
-        Examen CSharp = examens.addExamen(new Examen("C#", 1));
+        Examen CSharp = examens.addExamen(new Examen("java", 1));
         CSharp.addVragenToExamen(new Question("wat is de csharp? ", "5", meerkeuze));
         CSharp.addVragenToExamen(new Question("Waarom ben je goed in CSharp?", "geen idee"));
 
+        for(int x = 0; x < examens.getExamens().size(); x++){
+            for(int y = 0; y < examens.getExamens().size(); y++){
+                if(x != y){
+                    if(examens.getExamens().get(x).getExamenNaam().toLowerCase().equals(examens.getExamens().get(y).getExamenNaam().toLowerCase())){
+                        throw new IllegalArgumentException("Er is een examen met dezelfde naam.");
+                    }
+                }
+            }
+        }
         studenten.addStudent(new Student("Test persoon"));
         studenten.addStudent(new Student("John Klees"));
+        int nummer = Menu.printMenu();
         boolean running = true;
         while(running){
             switch (nummer) {
