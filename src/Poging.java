@@ -10,7 +10,6 @@ public class Poging {
     }
 
     public void addPoging(){
-
         this.aantalPogingen++;
     }
     public void setGeslaagd(
@@ -25,5 +24,10 @@ public class Poging {
     }
     public boolean isGeslaagd (){
         return this.geslaagd;
+    }
+
+    @Override
+    public String toString() {
+        return gekoppeldStudent.getStudentNaam() + " | " + gekoppeldStudent.getStudentNummer() + " " + gekoppeldExamen.getExamenNaam() + " || " + geslaagd;
     }
 }

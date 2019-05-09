@@ -21,7 +21,7 @@ public class Main {
         meerkeuze.add("speelgoed");
         meerkeuze.add("eten");
         meerkeuze.add("programmeertaal");
-        Examen CSharp = examens.addExamen(new Examen("java", 1));
+        Examen CSharp = examens.addExamen(new Examen("C#", 1));
         CSharp.addVragenToExamen(new Question("wat is de csharp? ", "5", meerkeuze));
         CSharp.addVragenToExamen(new Question("Waarom ben je goed in CSharp?", "geen idee"));
 
@@ -73,7 +73,7 @@ public class Main {
                     }
                     break;
                 case 6:
-                    Student = studenten.getStudentGeslaagd();
+                    Student = studenten.getStudentExamen();
                     if(Student.getStudentNaam() == ""){
                         System.out.println("geen student gevonden.");
                     }else{
@@ -81,7 +81,7 @@ public class Main {
                     }
                     break;
                 case 7:
-                    Student = studenten.getStudentGeslaagd();
+                    Student = studenten.getStudentExamen();
                     if(Student.getStudentNaam() == ""){
                         System.out.println("geen student gevonden.");
                     }else{

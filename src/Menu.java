@@ -30,7 +30,7 @@ public class Menu {
                 nummer = reader.nextInt();
             }catch (Exception e){
                 System.out.println("Er ging iets mis");
-                printMenu();
+                nummer = 0;
             }
         }
         return nummer;

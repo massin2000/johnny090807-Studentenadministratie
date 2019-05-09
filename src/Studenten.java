@@ -26,23 +26,11 @@ public class Studenten{
     }
     public Student getStudentExamen() {
         printStudenten();
-        System.out.println("Welk student wilt dit examen maken?");
-        Scanner reader = new Scanner(System.in);
-        String zoeken = reader.nextLine();
-        for (int i = 0; i < Studenten.size(); i++) {
-            if (Studenten.get(i).getStudentNummer().equals(zoeken.trim())){
-                return Studenten.get(i);
-            }
-        }
-        return new Student("");
-    }
-    public Student getStudentGeslaagd() {
-        printStudenten();
         System.out.println("Welk student wil je selecteren?");
         Scanner reader = new Scanner(System.in);
         String zoeken = reader.nextLine();
         for (int i = 0; i < Studenten.size(); i++) {
-            if (Studenten.get(i).getStudentNummer().equals(zoeken)){
+            if (Studenten.get(i).getStudentNummer().equals(zoeken.trim())){
                 return Studenten.get(i);
             }
         }

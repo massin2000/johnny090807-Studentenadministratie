@@ -13,18 +13,13 @@ public class Examen {
         this.minimalePunten = minimalePunten;
     }
 
-    public void stelVragen(Student student, Examen examen){
+    public void stelVragen(Student student, Examen examen) {
         this.addStudentToExamen(student);
         student.addExamen(examen);
-        Poging poging = new Poging(student,examen);
+        Poging poging = new Poging(student, examen);
+        pogingen.add(poging);
         for (Poging poging2: pogingen) {
-            if(poging2.getGekoppeldExamen().getExamenNaam().equals(examen.getExamenNaam()) && poging2.getGekoppeldStudent().getStudentNaam().equals(student.getStudentNaam())){
-                poging2.addPoging();
-                poging = poging2;
-            }else{
-                poging = new Poging(student, examen);
-                pogingen.add(poging);
-            }
+            System.out.println(poging2);
         }
         int geslaagd = 0;
         Scanner reader = new Scanner(System.in);
@@ -74,16 +69,21 @@ public class Examen {
     public String getExamenNaam(){ return this.examenNaam;}
     public void getPogingGeslaagd(Student student, Examen examen){
         Scanner reader = new Scanner(System.in);
+        boolean geslaagd = false;
         for (Poging poging: pogingen) {
             if(poging.getGekoppeldExamen() == examen && poging.getGekoppeldStudent() == student){
                 if(poging.isGeslaagd()){
-                    System.out.println("Deze student is geslaagd voor dit examen");
-                }else{
-                    System.out.println("Deze student is gezakt voor dit examen");
+                    geslaagd = true;
                 }
             }
             else if(poging.getGekoppeldExamen() == null){
                 System.out.println("Deze student heeft dit examen nog niet gemaakt.");
+            }
+            if(geslaagd){
+                System.out.println("Deze student is geslaagd voor dit examen");
+                break;
+            }else{
+                System.out.println("Deze student is gezakt voor dit examen");
             }
         }
         System.out.println();
